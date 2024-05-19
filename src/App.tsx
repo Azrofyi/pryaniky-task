@@ -9,7 +9,7 @@ import PublicRoute from './routes/PublicRoute.tsx';
 
 const App: React.FC = () => {
     return (
-        <Router>
+        <Router basename="/pryaniky-task">
             <NotificationProvider>
                 <AuthProvider>
                     <Routes>
