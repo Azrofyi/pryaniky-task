@@ -5,7 +5,7 @@ import { IDocumentData } from '../../types/types.ts';
 interface DataTableContentProps {
     data: IDocumentData[];
     onEdit: (data: IDocumentData) => void;
-    onDelete: (id: string | undefined) => void;
+    onDelete: (id: string) => void;
 }
 
 const styles = {
@@ -103,7 +103,7 @@ const DataTableContent: React.FC<DataTableContentProps> = ({ data, onEdit, onDel
                                 <Button
                                     variant="contained"
                                     color="error"
-                                    onClick={() => onDelete(row.id)}
+                                    onClick={() => row.id && onDelete(row.id)}
                                 >
                                     Delete
                                 </Button>
