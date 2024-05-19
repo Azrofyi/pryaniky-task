@@ -60,7 +60,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             setIsAuthenticated(true);
             navigate('/dashboard');
         } catch (error) {
-            setNotification(error?.message || 'An error occurred');
+            if (axios.isAxiosError(error)) {
+                setNotification(error.response?.data.message || 'An error occurred');
+            } else if (error instanceof Error) {
+                setNotification(error.message || 'An error occurred');
+            } else {
+                setNotification('An error occurred');
+            }
         }
     };
 

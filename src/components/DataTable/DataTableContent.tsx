@@ -5,7 +5,7 @@ import { IDocumentData } from '../../types/types.ts';
 interface DataTableContentProps {
     data: IDocumentData[];
     onEdit: (data: IDocumentData) => void;
-    onDelete: (id: string) => void;
+    onDelete: (id: string | undefined) => void;
 }
 
 const styles = {
